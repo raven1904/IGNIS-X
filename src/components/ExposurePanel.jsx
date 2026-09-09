@@ -1,0 +1,5 @@
+import { Building2, Car, RadioTower, Users } from "lucide-react";
+export default function ExposurePanel({event}) {
+  const rows=[[Building2,"Industrial facilities nearby",event.facilities],[Car,"Roads within radius",event.roads],[Users,"Population exposure",event.populationExposure],[RadioTower,"Critical infrastructure",event.criticalInfrastructure]];
+  return <div className="panel p-3"><div className="text-[10px] font-bold uppercase tracking-[.15em] text-slate-200">Exposure analysis</div><div className="mt-3 grid grid-cols-2 gap-2">{rows.map(([Icon,label,val])=><div key={label} className="rounded border border-slate-800 bg-slate-950/30 p-2"><Icon size={14} className="text-cyan-400"/><div className="mt-1 text-[8px] uppercase tracking-wider text-slate-600">{label}</div><div className="mt-0.5 text-[11px] font-bold text-slate-200">{val}</div></div>)}</div><div className="mt-2 text-[9px] text-slate-500">Suggested monitoring radius: <b className="text-slate-300">{event.radius} km</b></div></div>
+}

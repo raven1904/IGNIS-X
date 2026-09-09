@@ -1,0 +1,12 @@
+import { Play, RotateCcw, Zap } from "lucide-react";
+export default function ScenarioController({scenario,setScenario,onRun,running,progress,onReset}) {
+  const options=["Industrial Fire","Gas Flare","Agricultural Burning","Forest Fire","Persistent Thermal Source","False Thermal Anomaly"];
+  const steps=["Ingesting satellite observation","Validating thermal anomaly","Extracting thermal features","Checking temporal persistence","Querying geospatial context","Running AI classification","Calculating exposure","Computing risk score","Generating alert"];
+  return <div className="panel p-3">
+    <div className="flex items-center justify-between"><div><div className="text-[10px] font-bold uppercase tracking-[.15em] text-slate-200">Demo scenario</div><div className="mt-0.5 text-[9px] text-slate-500">Drive the full story with deterministic mock data.</div></div><Zap size={15} className="text-orange-400"/></div>
+    <select value={scenario} onChange={e=>setScenario(e.target.value)} className="mt-3 w-full rounded border border-slate-700 bg-[#080d13] px-2.5 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-200 outline-none focus:border-cyan-500/50">{options.map(x=><option key={x}>{x}</option>)}</select>
+    <button disabled={running} onClick={onRun} className="mt-2 flex w-full items-center justify-center gap-2 rounded bg-orange-500/90 px-3 py-2.5 text-[10px] font-black uppercase tracking-[.16em] text-white hover:bg-orange-500 disabled:cursor-wait disabled:opacity-60">{running?<><span className="h-3 w-3 animate-spin-slow rounded-full border-2 border-white/30 border-t-white"/>{progress}% analysis running</>:<><Play size={13} fill="currentColor"/> Run thermal analysis</>}</button>
+    {running && <div className="mt-3 space-y-1.5">{steps.map((s,i)=><div key={s} className="flex items-center gap-2 text-[8px]"><span className={`grid h-4 w-4 place-items-center rounded-full border ${progress>=(i+1)*11?"border-emerald-500/50 bg-emerald-500/10 text-emerald-400":"border-slate-700 text-slate-600"}`}>{progress>=(i+1)*11?"✓":i+1}</span><span className={progress>=(i+1)*11?"text-slate-300":"text-slate-600"}>{s}</span></div>)}</div>}
+    <button onClick={onReset} className="mt-3 flex w-full items-center justify-center gap-1 text-[8px] uppercase tracking-widest text-slate-600 hover:text-slate-400"><RotateCcw size={10}/> Reset demo</button>
+  </div>
+}
