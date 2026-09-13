@@ -9,7 +9,6 @@ export default function Header({ demoMode, setDemoMode, onReset }) {
       <div className="min-w-0">
         <div className="flex items-baseline gap-2">
           <h1 className="text-lg font-black tracking-[.18em] text-white">IGNIS-X</h1>
-          <span className="hidden sm:inline text-[10px] font-semibold tracking-[.16em] text-slate-500">SIH26162</span>
         </div>
         <p className="truncate text-[10px] uppercase tracking-[.16em] text-slate-400">Industrial Thermal Intelligence & Early Warning</p>
       </div>
