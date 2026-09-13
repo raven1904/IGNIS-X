@@ -1,6 +1,6 @@
-# IGNIS-X — SIH 2026 Demo
+# IGNIS-X
 
-Single-page React/Vite command-center prototype for SIH26162.
+Single-page React/Vite command-center prototype.
 
 ## Run
 
